@@ -12,6 +12,9 @@ namespace TeamForkyAPI.Models
         public string Birthday { get; set; }
         public Status Status { get; set; }
         public DateTime CheckIn { get; set; }
+
+        //Navigation Prop
+        public List<PatientResources> PatientResources { get; set; }
     }
 
     public enum Status
