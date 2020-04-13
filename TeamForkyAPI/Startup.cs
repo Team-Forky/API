@@ -40,10 +40,6 @@ namespace TeamForkyAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            //TeddyStart
-            app.UseStaticFiles();
-            //TeddyEnd
             
             app.UseRouting();
 

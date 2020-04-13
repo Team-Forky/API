@@ -8,7 +8,7 @@ namespace TeamForkyAPI.Models.Services
 {
     public class PatientService : IPatients
     {
-        public Task CreatePatient(Patients patients)
+        public Task CreatePatient(Patient patients)
         {
             throw new NotImplementedException();
         }
@@ -28,7 +28,7 @@ namespace TeamForkyAPI.Models.Services
             throw new NotImplementedException();
         }
 
-        public Task UpdatePatient(int ID)
+        public Task UpdatePatient(int ID, Patient patient)
         {
             throw new NotImplementedException();
         }

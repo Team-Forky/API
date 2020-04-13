@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TeamForkyAPI.Models
 {
-    public class Patients
+    public class Patient
     {
         public int ID { get; set; }
         public string Name { get; set; }
