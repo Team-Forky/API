@@ -7,5 +7,8 @@ namespace TeamForkyAPI.Models
 {
     public class PatientResources
     {
+        public int PatientID { get; set; }
+        public int ResourcesID { get; set; }
+
     }
 }

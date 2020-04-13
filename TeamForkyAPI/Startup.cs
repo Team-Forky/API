@@ -28,7 +28,9 @@ namespace TeamForkyAPI
             services.AddMvc();
 
             //Add transients here
-
+            // add connection to database
+            //loophandler maybe?
+            //mapping
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +41,10 @@ namespace TeamForkyAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            //TeddyStart
+            app.UseStaticFiles();
+            //TeddyEnd
+            
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

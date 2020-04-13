@@ -7,5 +7,12 @@ namespace TeamForkyAPI.Models.Interfaces
 {
     public interface IPatientResources
     {
+        // PatientID
+        Task GetPatientResources(int ID);
+
+        // ResourceID
+        Task GetPatientsFromSpecificResource(int ID);
+
+
     }
 }
