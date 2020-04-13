@@ -5,20 +5,23 @@ using System.Threading.Tasks;
 
 namespace TeamForkyAPI.Models
 {
-    public class Resources
+    public class Patient
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public ResourcesType ResourcesType { get; set; }
+        public string Birthday { get; set; }
+        public Status Status { get; set; }
+        public DateTime CheckIn { get; set; }
 
+        //Navigation Prop
         public List<PatientResources> PatientResources { get; set; }
     }
 
-    public enum ResourcesType
+    public enum Status
     {
-        staff = 0,
-        equipment = 1,
-        room = 2
+        stable = 0,
+        unstable = 1,
+        critical = 2,
+        deceased = 3
     }
 }

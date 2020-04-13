@@ -5,19 +5,26 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TeamForkyAPI.Data;
+using TeamForkyAPI.Models.Interfaces;
+using TeamForkyAPI.Models.Services;
 
 namespace TeamForkyAPI
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup()
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+            .AddEnvironmentVariables();
+            builder.AddUserSecrets<Startup>();
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -27,8 +34,14 @@ namespace TeamForkyAPI
         {
             services.AddMvc();
 
-            //Add transients here
-
+            // add connection to database
+            services.AddDbContext<HospitalDbContext>(options =>
+      options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //loophandler maybe?
+            //mapping
+            services.AddTransient<IPatients, PatientService>();
+            services.AddTransient<IPatientResources, PatientResourcesService>();
+            services.AddTransient<IResources, ResourcesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,7 +51,7 @@ namespace TeamForkyAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
