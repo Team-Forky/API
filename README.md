@@ -105,20 +105,17 @@ Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit
 
 | Parameter | Type | Required |
 | --- | --- | --- |
-| PatientID  | int | YES |
+| ID  | int | YES |
 | Name | string | YES |
 | Birthday | string | YES |
 | Status | enum | YES |
-| MedicalHistory | string | YES |
-| CheckInDate | string | YES |
-| PatientNotes | string | NO |
-
+| CheckIn | string | YES |
 
 ### Resources
 
 | Parameter | Type | Required |
 | --- | --- | --- |
-| ResourcesID  | int | YES |
+| ID  | int | YES |
 | Name | string | YES |
 | Description | string | YES |
 | Type | enum | YES |
