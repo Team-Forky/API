@@ -9,8 +9,10 @@ using System.Linq;
 
 namespace TeamForkyAPI.Models.Services
 {
+    //Inherit from IPatient
     public class PatientService : IPatients
     {
+        //gain access to table properties
         private HospitalDbContext _context { get; }
 
         public PatientService(HospitalDbContext context)
@@ -18,12 +20,21 @@ namespace TeamForkyAPI.Models.Services
             _context = context;
         }
 
+        /// <summary>
+        /// Create a patient
+        /// </summary>
+        /// <param name="patient">patient object</param>
+        /// <returns></returns>
         public async Task CreatePatient(Patient patient)
         {
             _context.Add(patient);
             await _context.SaveChangesAsync();
         }
 
+        /// <summary>
+        /// Returns a list of patients from table
+        /// </summary>
+        /// <returns></returns>
         public async Task<List<PatientsDTO>> GetAllPatients()
         {
             List<Patient> patients = await _context.Patient.ToListAsync();
@@ -36,11 +47,10 @@ namespace TeamForkyAPI.Models.Services
             return pDTO;
         }
 
-
         /// <summary>
         /// Get patient by ID
         /// </summary>
-        /// <param name="ID"></param>
+        /// <param name="ID">int</param>
         /// <returns></returns>
         public async Task<PatientsDTO> GetPatientByID(int ID)
         {
@@ -49,11 +59,8 @@ namespace TeamForkyAPI.Models.Services
 
             var patientResources = await _context.PatientResources.Where(x => x.PatientID == ID)
                                             .Include(x => x.Resources)
-                                            .ThenInclude(x => x.PatientResources)
-                                            .ThenInclude(x => x.Resources)
                                             .ToListAsync();
-
-         
+       
             List<ResourcesDTO> patientRes = new List<ResourcesDTO>();
 
             foreach (var pr in patientResources)
@@ -65,18 +72,15 @@ namespace TeamForkyAPI.Models.Services
                     Description = pr.Resources.Description
                 };
                 patientRes.Add(rdto);
-
             }
             pDTO.Resources = patientRes;
             return pDTO;
-
         }
 
         /// <summary>
         /// Delete a Patient from Database
         /// </summary>
         /// <param name="ID"> Patient ID </param>
-
         public async Task RemovePatient(int ID)
         {
             Patient patient = await _context.Patient.FindAsync(ID);
