@@ -15,7 +15,7 @@ namespace TeamForkyAPI.DTOs
         public DateTime CheckIn { get; set; }
 
         //Navigation Prop
-        public List<PatientResources> PatientResources { get; set; }
+        public List<PatientResourcesDTO> PatientResources { get; set; }
     }
 
     public enum Status

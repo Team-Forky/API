@@ -60,5 +60,19 @@ namespace TeamForkyAPI.Controllers
 
             return NoContent();
         }
+
+        // PUT: api/patients/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePatient(int ID, Patient patient)
+        {
+            if (ID != patient.ID)
+            {
+                return BadRequest();
+            }
+
+            await _patientService.UpdatePatient(ID, patient);
+
+            return NoContent();
+        }
     }
 }
