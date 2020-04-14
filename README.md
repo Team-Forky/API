@@ -3,8 +3,11 @@
 ## Project Hospitaller
 ---
 ### We are deployed on Azure!
+* Back end
 
 https://hospitaller-team-forky-api.azurewebsites.net
+* Fron end
+
 
 ---
 ## Web Application
