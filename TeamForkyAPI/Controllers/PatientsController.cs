@@ -14,7 +14,7 @@ using TeamForkyAPI.Models.Interfaces;
 
 namespace TeamForkyAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/patients")]
     [ApiController]
     public class PatientsController : ControllerBase
     {
@@ -24,17 +24,32 @@ namespace TeamForkyAPI.Controllers
             _patientService = patientService;
         }
 
-        // GET: api/Patients
+        // GET: api/patients
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PatientsDTO>>> GetPatients() => await _patientService.GetAllPatients();
 
 
-        // POST: api/Patients
+        // POST: api/patients
         [HttpPost]
         public async Task<ActionResult<Patient>> CreatePatient(Patient patient)
         {
             await _patientService.CreatePatient(patient);
             return CreatedAtAction("CreatePatient", new { id = patient.ID }, patient);
+        }
+
+        // GET: api/Hotels/5
+        /// Get route that shows specific Hotel when user picks
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PatientsDTO>> GetPatient(int ID)
+        {
+            var patient = await _patientService.GetPatientByID(ID);
+
+            if (patient == null)
+            {
+                return NotFound();
+            }
+
+            return patient;
         }
     }
 }
