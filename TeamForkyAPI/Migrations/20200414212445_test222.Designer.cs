@@ -10,8 +10,8 @@ using TeamForkyAPI.Data;
 namespace TeamForkyAPI.Migrations
 {
     [DbContext(typeof(HospitalDbContext))]
-    [Migration("20200413223538_data")]
-    partial class data
+    [Migration("20200414212445_test222")]
+    partial class test222
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,7 +49,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 1,
                             Birthday = "02/16/1991",
-                            CheckIn = new DateTime(2020, 4, 13, 15, 35, 38, 99, DateTimeKind.Local).AddTicks(4759),
+                            CheckIn = new DateTime(2020, 4, 14, 14, 24, 45, 436, DateTimeKind.Local).AddTicks(2070),
                             Name = "Teddy",
                             Status = 0
                         },
@@ -57,8 +57,16 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 2,
                             Birthday = "03/23/1986",
-                            CheckIn = new DateTime(2020, 4, 13, 15, 35, 38, 102, DateTimeKind.Local).AddTicks(7319),
+                            CheckIn = new DateTime(2020, 4, 14, 14, 24, 45, 455, DateTimeKind.Local).AddTicks(3740),
                             Name = "Joseph",
+                            Status = 2
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Birthday = "08/29/1992",
+                            CheckIn = new DateTime(2020, 4, 14, 14, 24, 45, 455, DateTimeKind.Local).AddTicks(3790),
+                            Name = "Matthew",
                             Status = 2
                         });
                 });
@@ -79,6 +87,32 @@ namespace TeamForkyAPI.Migrations
                     b.HasIndex("ResourcesID");
 
                     b.ToTable("PatientResources");
+
+                    b.HasData(
+                        new
+                        {
+                            PatientID = 1,
+                            ResourcesID = 1,
+                            ID = 1
+                        },
+                        new
+                        {
+                            PatientID = 1,
+                            ResourcesID = 3,
+                            ID = 2
+                        },
+                        new
+                        {
+                            PatientID = 3,
+                            ResourcesID = 2,
+                            ID = 3
+                        },
+                        new
+                        {
+                            PatientID = 2,
+                            ResourcesID = 1,
+                            ID = 4
+                        });
                 });
 
             modelBuilder.Entity("TeamForkyAPI.Models.Resources", b =>
@@ -105,16 +139,23 @@ namespace TeamForkyAPI.Migrations
                         new
                         {
                             ID = 1,
-                            Description = "02/16/1991",
-                            Name = "Teddy",
+                            Description = "Specialist in C# surgery",
+                            Name = "Dr. Amanda",
                             ResourcesType = 0
                         },
                         new
                         {
                             ID = 2,
-                            Description = "02/16/1991",
-                            Name = "Joseph",
-                            ResourcesType = 2
+                            Description = "Specialist in education touch up",
+                            Name = "Dr. Brook",
+                            ResourcesType = 0
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Description = "Bacteria sanitizer",
+                            Name = "Microwave",
+                            ResourcesType = 1
                         });
                 });
 

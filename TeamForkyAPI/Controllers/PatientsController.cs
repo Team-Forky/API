@@ -37,8 +37,8 @@ namespace TeamForkyAPI.Controllers
             return CreatedAtAction("CreatePatient", new { id = patient.ID }, patient);
         }
 
-        // GET: api/Hotels/5
-        /// Get route that shows specific Hotel when user picks
+        // GET: api/patients/5
+        /// Get route that shows specific patient when user picks
         [HttpGet("{id}")]
         public async Task<ActionResult<PatientsDTO>> GetPatient(int ID)
         {
@@ -50,6 +50,29 @@ namespace TeamForkyAPI.Controllers
             }
 
             return patient;
+        }
+
+        // DELETE: api/patients/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Patient>> DeletePatient(int ID)
+        {
+            await _patientService.RemovePatient(ID);
+
+            return NoContent();
+        }
+
+        // PUT: api/patients/5
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePatient(int ID, Patient patient)
+        {
+            if (ID != patient.ID)
+            {
+                return BadRequest();
+            }
+
+            await _patientService.UpdatePatient(ID, patient);
+
+            return NoContent();
         }
     }
 }

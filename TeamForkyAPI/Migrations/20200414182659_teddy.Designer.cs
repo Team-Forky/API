@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TeamForkyAPI.Data;
 
 namespace TeamForkyAPI.Migrations
 {
     [DbContext(typeof(HospitalDbContext))]
-    partial class HospitalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200414182659_teddy")]
+    partial class teddy
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,7 +49,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 1,
                             Birthday = "02/16/1991",
-                            CheckIn = new DateTime(2020, 4, 14, 14, 24, 45, 436, DateTimeKind.Local).AddTicks(2070),
+                            CheckIn = new DateTime(2020, 4, 14, 11, 26, 58, 786, DateTimeKind.Local).AddTicks(460),
                             Name = "Teddy",
                             Status = 0
                         },
@@ -55,16 +57,8 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 2,
                             Birthday = "03/23/1986",
-                            CheckIn = new DateTime(2020, 4, 14, 14, 24, 45, 455, DateTimeKind.Local).AddTicks(3740),
+                            CheckIn = new DateTime(2020, 4, 14, 11, 26, 58, 805, DateTimeKind.Local).AddTicks(7710),
                             Name = "Joseph",
-                            Status = 2
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Birthday = "08/29/1992",
-                            CheckIn = new DateTime(2020, 4, 14, 14, 24, 45, 455, DateTimeKind.Local).AddTicks(3790),
-                            Name = "Matthew",
                             Status = 2
                         });
                 });
@@ -85,32 +79,6 @@ namespace TeamForkyAPI.Migrations
                     b.HasIndex("ResourcesID");
 
                     b.ToTable("PatientResources");
-
-                    b.HasData(
-                        new
-                        {
-                            PatientID = 1,
-                            ResourcesID = 1,
-                            ID = 1
-                        },
-                        new
-                        {
-                            PatientID = 1,
-                            ResourcesID = 3,
-                            ID = 2
-                        },
-                        new
-                        {
-                            PatientID = 3,
-                            ResourcesID = 2,
-                            ID = 3
-                        },
-                        new
-                        {
-                            PatientID = 2,
-                            ResourcesID = 1,
-                            ID = 4
-                        });
                 });
 
             modelBuilder.Entity("TeamForkyAPI.Models.Resources", b =>
@@ -137,23 +105,16 @@ namespace TeamForkyAPI.Migrations
                         new
                         {
                             ID = 1,
-                            Description = "Specialist in C# surgery",
-                            Name = "Dr. Amanda",
+                            Description = "02/16/1991",
+                            Name = "Teddy",
                             ResourcesType = 0
                         },
                         new
                         {
                             ID = 2,
-                            Description = "Specialist in education touch up",
-                            Name = "Dr. Brook",
-                            ResourcesType = 0
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Description = "Bacteria sanitizer",
-                            Name = "Microwave",
-                            ResourcesType = 1
+                            Description = "02/16/1991",
+                            Name = "Joseph",
+                            ResourcesType = 2
                         });
                 });
 
