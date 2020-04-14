@@ -11,7 +11,7 @@ namespace TeamForkyAPI.Models.Interfaces
         Task CreatePatient(Patient patient);
         Task UpdatePatient(int ID, Patient patient);
         Task <List<PatientsDTO>> GetAllPatients();
-        Task GetPatientByID(int ID);
+        Task <PatientsDTO> GetPatientByID(int ID);
         Task RemovePatient(int ID);
     }
 }

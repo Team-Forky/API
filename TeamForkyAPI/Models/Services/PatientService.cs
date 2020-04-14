@@ -35,9 +35,11 @@ namespace TeamForkyAPI.Models.Services
             return pDTO;
         }
 
-        public Task GetPatientByID(int ID)
+        public async Task<PatientsDTO> GetPatientByID(int ID)
         {
-            throw new NotImplementedException();
+            var patient = await _context.Patient.FindAsync(ID);
+            PatientsDTO pDTO = ConvertToDTO(patient);
+            return pDTO;
         }
 
         public Task RemovePatient(int ID)
