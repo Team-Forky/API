@@ -3,29 +3,18 @@
 ## Project Hospitaller
 ---
 ### We are deployed on Azure!
-* Back end
-
-https://hospitaller-team-forky-api.azurewebsites.net
-* Fron end
+* Back end - https://hospitaller-team-forky-api.azurewebsites.net
+* Fron end - https://hospitallerfe-teamforky.azurewebsites.net
 
 
 ---
 ## Web Application
-***[Explain your app, should be at least a paragraph. What does it do? Why should I use? Sell your product!]***
 
-The web application consists of a frontend written in Razor views, HTML, CSS,
-Bootstrap, Popper, and jQuery. The backend was written in C# using ASP.NET Core 2, Entity Framework Core, and the MVC framework.
+The API consists of 3 Tables that consists of Patients, Resources, & Patient Resources.
+The backend was written in C# using ASP.NET Core 2, Entity Framework Core, and the MVC framework.
 
-An interface is provided to create new blog
-posts, view existing blog posts, edit existing blog posts, delete existing
-blog posts, and search by both keywords and usernames. All blog posts can be
-enriched using Azure Language Services (part of Microsoft's Cognitive Services
-suite), Bing Image API, and Parallel Dots (for automated tagging of posts via
-key phrases detected within the post's body). Image enrichments can be added
-based on the overall sentiment score (a range 0.0 - 1.0 related to the mood
-of the post) and key phrases / keywords detected in the posts. Optionally, users
-can choose to opt-out of these features for privacy or data collection concerns.
-
+* With this API, a care-taker will be able to enter, retrieve, update, or remove a patient from a database. 
+* Care-taker will be able to enter a patients name, age, status, and check in date/time when created.
 ---
 
 ## Tools Used
