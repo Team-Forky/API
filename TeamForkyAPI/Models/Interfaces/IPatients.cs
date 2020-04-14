@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TeamForkyAPI.DTOs;
 
 namespace TeamForkyAPI.Models.Interfaces
 {
@@ -9,8 +10,8 @@ namespace TeamForkyAPI.Models.Interfaces
     {
         Task CreatePatient(Patient patient);
         Task UpdatePatient(int ID, Patient patient);
-        Task <List<Patient>> GetAllPatients();
-        Task GetPatientByID(int ID);
+        Task <List<PatientsDTO>> GetAllPatients();
+        Task <PatientsDTO> GetPatientByID(int ID);
         Task RemovePatient(int ID);
     }
 }

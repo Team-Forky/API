@@ -1,32 +1,24 @@
 # 401 Mid-term Project 
 
-## Project Hospitaller
+## Project Hospitaller- Back end
 ---
 ### We are deployed on Azure!
+* Back end - https://hospitaller-team-forky-api.azurewebsites.net
+* Fron end - https://hospitallerfe-teamforky.azurewebsites.net
 
-[project url here]
 
 ---
 ## Web Application
-***[Explain your app, should be at least a paragraph. What does it do? Why should I use? Sell your product!]***
 
-The web application consists of a frontend written in Razor views, HTML, CSS,
-Bootstrap, Popper, and jQuery. The backend was written in C# using ASP.NET Core 2, Entity Framework Core, and the MVC framework.
+The API consists of 3 Tables that consists of Patients, Resources, & Patient Resources.
+The backend was written in C# using ASP.NET Core 2, Entity Framework Core, and the MVC framework.
 
-An interface is provided to create new blog
-posts, view existing blog posts, edit existing blog posts, delete existing
-blog posts, and search by both keywords and usernames. All blog posts can be
-enriched using Azure Language Services (part of Microsoft's Cognitive Services
-suite), Bing Image API, and Parallel Dots (for automated tagging of posts via
-key phrases detected within the post's body). Image enrichments can be added
-based on the overall sentiment score (a range 0.0 - 1.0 related to the mood
-of the post) and key phrases / keywords detected in the posts. Optionally, users
-can choose to opt-out of these features for privacy or data collection concerns.
-
+* With this API, a care-taker will be able to enter, retrieve, update, or remove a patient from a database. 
+* Care-taker will be able to enter a patients name, age, status, and check in date/time when created.
 ---
 
 ## Tools Used
-Microsoft Visual Studio Community 2017 (Version 15.5.7)
+Microsoft Visual Studio Community 2019
 
 - C#
 - ASP.Net Core
@@ -48,7 +40,7 @@ Once downloaded, you can either use the dotnet CLI utilities or Visual Studio 20
 cd YourRepo/YourProject
 dotnet build
 ```
-The dotnet tools will automatically restore any NuGet dependencies. Before running the application, the provided code-first migration will need to be applied to the SQL server of your choice configured in the /AmandaFE/AmandaFE/appsettings.json file. This requires the Microsoft.EntityFrameworkCore.Tools NuGet package and can be run from the NuGet Package Manager Console:
+The dotnet tools will automatically restore any NuGet dependencies. Before running the application, the provided code-first migration will need to be applied to the SQL server of your choice configured in the /Team-Forky-API/Team-Forky-API/appsettings.json file. This requires the Microsoft.EntityFrameworkCore.Tools NuGet package and can be run from the NuGet Package Manager Console:
 ```
 Update-Database
 ```
@@ -57,28 +49,29 @@ Once the database has been created, the application can be run. Options for runn
 cd YourRepo/YourProject
 dotnet run
 ```
-Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit test framework. Tests have been provided for models, view models, controllers, and utility classes for the application.
-
 ---
 
-## Usage
-***[Provide some images of your app with brief description as title]***
+## Overview
 
-### Overview of Recent Posts
-![Overview of Recent Posts]()
+### Reading all patients
+* route/api/Patients
+* [Overview of Recent Posts]()
 
-### Creating a Post
-![Post Creation]()
+### Viewing a patient
+* route/api/Patient/{id}
+* [Details of Post]()
 
-### Enriching a Post
-![Enriching Post]()
+### Creating a patient
+* route
+* [Post Creation]()
 
-### Viewing Post Details
-![Details of Post]()
+### Updating a patient
+* route
+* [Enriching Post]()
+
 
 ---
 ## Data Flow (Frontend, Backend, REST API)
-***[Add a clean and clear explanation of what the data flow is. Walk me through it.]***
 ![Data Flow Diagram](assets/ERD.png)
 
 ---
@@ -86,7 +79,7 @@ Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit
 
 ### Overall Project Schema
 ***[Add a description of your DB schema. Explain the relationships to me.]***
-![Database Schema](/assets/img/ERD.png)
+[Database Schema]()
 
 ---
 ## Model Properties and Requirements
@@ -120,7 +113,7 @@ Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit
 ---
 
 ## Change Log
-1.1: *Deploy database and backend* - 13 April 2020  
+1.1: *Deploy database and backend with dummy DTO data for Patient* - 13 April 2020  
 
 ---
 
