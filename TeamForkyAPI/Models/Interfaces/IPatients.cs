@@ -8,10 +8,17 @@ namespace TeamForkyAPI.Models.Interfaces
 {
     public interface IPatients
     {
+        //Create
         Task CreatePatient(Patient patient);
+
+        //Read
+        Task<List<PatientsDTO>> GetAllPatients();
+        Task<PatientsDTO> GetPatientByID(int ID);
+
+        //Update
         Task UpdatePatient(int ID, Patient patient);
-        Task <List<PatientsDTO>> GetAllPatients();
-        Task <PatientsDTO> GetPatientByID(int ID);
+
+        //Delete
         Task RemovePatient(int ID);
     }
 }

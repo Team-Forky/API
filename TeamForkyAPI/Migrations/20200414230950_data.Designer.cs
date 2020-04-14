@@ -10,8 +10,8 @@ using TeamForkyAPI.Data;
 namespace TeamForkyAPI.Migrations
 {
     [DbContext(typeof(HospitalDbContext))]
-    [Migration("20200414182659_teddy")]
-    partial class teddy
+    [Migration("20200414230950_data")]
+    partial class data
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,7 +49,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 1,
                             Birthday = "02/16/1991",
-                            CheckIn = new DateTime(2020, 4, 14, 11, 26, 58, 786, DateTimeKind.Local).AddTicks(460),
+                            CheckIn = new DateTime(2020, 4, 14, 16, 9, 49, 623, DateTimeKind.Local).AddTicks(4303),
                             Name = "Teddy",
                             Status = 0
                         },
@@ -57,8 +57,16 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 2,
                             Birthday = "03/23/1986",
-                            CheckIn = new DateTime(2020, 4, 14, 11, 26, 58, 805, DateTimeKind.Local).AddTicks(7710),
+                            CheckIn = new DateTime(2020, 4, 14, 16, 9, 49, 627, DateTimeKind.Local).AddTicks(9340),
                             Name = "Joseph",
+                            Status = 2
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Birthday = "08/29/1992",
+                            CheckIn = new DateTime(2020, 4, 14, 16, 9, 49, 628, DateTimeKind.Local).AddTicks(599),
+                            Name = "Matthew",
                             Status = 2
                         });
                 });
@@ -79,6 +87,32 @@ namespace TeamForkyAPI.Migrations
                     b.HasIndex("ResourcesID");
 
                     b.ToTable("PatientResources");
+
+                    b.HasData(
+                        new
+                        {
+                            PatientID = 1,
+                            ResourcesID = 1,
+                            ID = 1
+                        },
+                        new
+                        {
+                            PatientID = 1,
+                            ResourcesID = 3,
+                            ID = 2
+                        },
+                        new
+                        {
+                            PatientID = 3,
+                            ResourcesID = 2,
+                            ID = 3
+                        },
+                        new
+                        {
+                            PatientID = 2,
+                            ResourcesID = 1,
+                            ID = 4
+                        });
                 });
 
             modelBuilder.Entity("TeamForkyAPI.Models.Resources", b =>
@@ -105,29 +139,36 @@ namespace TeamForkyAPI.Migrations
                         new
                         {
                             ID = 1,
-                            Description = "02/16/1991",
-                            Name = "Teddy",
+                            Description = "Specialist in C# surgery",
+                            Name = "Dr. Amanda",
                             ResourcesType = 0
                         },
                         new
                         {
                             ID = 2,
-                            Description = "02/16/1991",
-                            Name = "Joseph",
-                            ResourcesType = 2
+                            Description = "Specialist in education touch up",
+                            Name = "Dr. Brook",
+                            ResourcesType = 0
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Description = "Bacteria sanitizer",
+                            Name = "Microwave",
+                            ResourcesType = 1
                         });
                 });
 
             modelBuilder.Entity("TeamForkyAPI.Models.PatientResources", b =>
                 {
                     b.HasOne("TeamForkyAPI.Models.Patient", "Patient")
-                        .WithMany("PatientResources")
+                        .WithMany()
                         .HasForeignKey("PatientID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TeamForkyAPI.Models.Resources", "Resources")
-                        .WithMany("PatientResources")
+                        .WithMany()
                         .HasForeignKey("ResourcesID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

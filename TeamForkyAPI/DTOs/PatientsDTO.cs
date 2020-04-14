@@ -15,7 +15,6 @@ namespace TeamForkyAPI.DTOs
         public DateTime CheckIn { get; set; }
 
         //Navigation Prop
-        public List<PatientResourcesDTO> PatientResources { get; set; }
         public List<ResourcesDTO> Resources { get; set; }
     }
 

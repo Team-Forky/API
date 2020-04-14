@@ -12,7 +12,5 @@ namespace TeamForkyAPI.DTOs
         public string Name { get; set; }
         public string Description { get; set; }
         public string ResourcesType { get; set; }
-
-        public List<PatientResources> PatientResources { get; set; }
     }
 }

@@ -9,10 +9,17 @@ namespace TeamForkyAPI.Models.Interfaces
 {
     public interface IResources
     {
+        //Create
+        Task CreateResources(Resources resources);
+
+        //Read
         Task<ActionResult<ResourcesDTO>> GetResourcesByID(int ID);
         Task<List<ResourcesDTO>> GetAllResources();
+
+        //Update
         Task UpdateResources(int ID, Resources resources);
-        Task CreateResources(Resources resources);
+
+        //Delete
         Task RemoveResources(int ID);
     }
 }

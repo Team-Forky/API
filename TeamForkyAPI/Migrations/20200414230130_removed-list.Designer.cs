@@ -10,8 +10,8 @@ using TeamForkyAPI.Data;
 namespace TeamForkyAPI.Migrations
 {
     [DbContext(typeof(HospitalDbContext))]
-    [Migration("20200414212445_test222")]
-    partial class test222
+    [Migration("20200414230130_removed-list")]
+    partial class removedlist
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,7 +49,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 1,
                             Birthday = "02/16/1991",
-                            CheckIn = new DateTime(2020, 4, 14, 14, 24, 45, 436, DateTimeKind.Local).AddTicks(2070),
+                            CheckIn = new DateTime(2020, 4, 14, 16, 1, 29, 948, DateTimeKind.Local).AddTicks(2670),
                             Name = "Teddy",
                             Status = 0
                         },
@@ -57,7 +57,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 2,
                             Birthday = "03/23/1986",
-                            CheckIn = new DateTime(2020, 4, 14, 14, 24, 45, 455, DateTimeKind.Local).AddTicks(3740),
+                            CheckIn = new DateTime(2020, 4, 14, 16, 1, 29, 952, DateTimeKind.Local).AddTicks(702),
                             Name = "Joseph",
                             Status = 2
                         },
@@ -65,7 +65,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 3,
                             Birthday = "08/29/1992",
-                            CheckIn = new DateTime(2020, 4, 14, 14, 24, 45, 455, DateTimeKind.Local).AddTicks(3790),
+                            CheckIn = new DateTime(2020, 4, 14, 16, 1, 29, 952, DateTimeKind.Local).AddTicks(767),
                             Name = "Matthew",
                             Status = 2
                         });
@@ -168,7 +168,7 @@ namespace TeamForkyAPI.Migrations
                         .IsRequired();
 
                     b.HasOne("TeamForkyAPI.Models.Resources", "Resources")
-                        .WithMany("PatientResources")
+                        .WithMany()
                         .HasForeignKey("ResourcesID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
