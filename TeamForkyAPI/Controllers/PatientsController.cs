@@ -18,17 +18,23 @@ namespace TeamForkyAPI.Controllers
     [ApiController]
     public class PatientsController : ControllerBase
     {
-        private readonly IPatients _context;
-        public PatientsController(IPatients context)
+        private readonly IPatients _patientService;
+        public PatientsController(IPatients patientService)
         {
-            _context = context;
+            _patientService = patientService;
         }
 
         // GET: api/Patients
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PatientsDTO>>> GetPatients()
+        public async Task<ActionResult<IEnumerable<PatientsDTO>>> GetPatients() => await _patientService.GetAllPatients();
+
+
+        // POST: api/Patients
+        [HttpPost]
+        public async Task<ActionResult<Patient>> CreatePatient(Patient patient)
         {
-            return await _context.GetAllPatients();
+            await _patientService.CreatePatient(patient);
+            return CreatedAtAction("CreatePatient", new { id = patient.ID }, patient);
         }
     }
 }

@@ -17,9 +17,10 @@ namespace TeamForkyAPI.Models.Services
             _context = context;
         }
 
-        public Task CreatePatient(Patient patients)
+        public async Task CreatePatient(Patient patient)
         {
-            throw new NotImplementedException();
+            _context.Add(patient);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<PatientsDTO>> GetAllPatients()
