@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TeamForkyAPI.Migrations
 {
-    public partial class data : Migration
+    public partial class teddy : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -68,8 +68,8 @@ namespace TeamForkyAPI.Migrations
                 columns: new[] { "ID", "Birthday", "CheckIn", "Name", "Status" },
                 values: new object[,]
                 {
-                    { 1, "02/16/1991", new DateTime(2020, 4, 13, 15, 35, 38, 99, DateTimeKind.Local).AddTicks(4759), "Teddy", 0 },
-                    { 2, "03/23/1986", new DateTime(2020, 4, 13, 15, 35, 38, 102, DateTimeKind.Local).AddTicks(7319), "Joseph", 2 }
+                    { 1, "02/16/1991", new DateTime(2020, 4, 14, 11, 26, 58, 786, DateTimeKind.Local).AddTicks(460), "Teddy", 0 },
+                    { 2, "03/23/1986", new DateTime(2020, 4, 14, 11, 26, 58, 805, DateTimeKind.Local).AddTicks(7710), "Joseph", 2 }
                 });
 
             migrationBuilder.InsertData(

@@ -42,9 +42,12 @@ namespace TeamForkyAPI.Models.Services
             return pDTO;
         }
 
-        public Task RemovePatient(int ID)
+        public async Task RemovePatient(int ID)
         {
-            throw new NotImplementedException();
+            Patient patient = await _context.Patient.FindAsync(ID);
+
+            _context.Patient.Remove(patient);    
+            await _context.SaveChangesAsync();
         }
 
         public Task UpdatePatient(int ID, Patient patient)
