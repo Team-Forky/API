@@ -63,19 +63,19 @@ dotnet run
 
 ### Reading all patients
 * route/api/Patients
-* ![Overview of Recent Posts]()
+* [Overview of Recent Posts]()
 
 ### Viewing a patient
 * route/api/Patient/{id}
-* ![Details of Post]()
+* [Details of Post]()
 
 ### Creating a patient
 * route
-* ![Post Creation]()
+* [Post Creation]()
 
 ### Updating a patient
 * route
-* ![Enriching Post]()
+* [Enriching Post]()
 
 
 ---
@@ -87,7 +87,7 @@ dotnet run
 
 ### Overall Project Schema
 ***[Add a description of your DB schema. Explain the relationships to me.]***
-![Database Schema]()
+[Database Schema]()
 
 ---
 ## Model Properties and Requirements
