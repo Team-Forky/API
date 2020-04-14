@@ -1,6 +1,6 @@
 # 401 Mid-term Project 
 
-## Project Hospitaller
+## Project Hospitaller- Back end
 ---
 ### We are deployed on Azure!
 * Back end - https://hospitaller-team-forky-api.azurewebsites.net
@@ -40,7 +40,7 @@ Once downloaded, you can either use the dotnet CLI utilities or Visual Studio 20
 cd YourRepo/YourProject
 dotnet build
 ```
-The dotnet tools will automatically restore any NuGet dependencies. Before running the application, the provided code-first migration will need to be applied to the SQL server of your choice configured in the /AmandaFE/AmandaFE/appsettings.json file. This requires the Microsoft.EntityFrameworkCore.Tools NuGet package and can be run from the NuGet Package Manager Console:
+The dotnet tools will automatically restore any NuGet dependencies. Before running the application, the provided code-first migration will need to be applied to the SQL server of your choice configured in the /Team-Forky-API/Team-Forky-API/appsettings.json file. This requires the Microsoft.EntityFrameworkCore.Tools NuGet package and can be run from the NuGet Package Manager Console:
 ```
 Update-Database
 ```
