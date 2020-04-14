@@ -1,6 +1,6 @@
-# Project README Example
+# 401 Mid-term Project 
 
-## Project A.M.A.N.D.A.
+## Project Hospitaller
 ---
 ### We are deployed on Azure!
 
@@ -32,17 +32,7 @@ Microsoft Visual Studio Community 2017 (Version 15.5.7)
 - ASP.Net Core
 - Entity Framework
 - MVC
-- xUnit
-- Bootstrap
 - Azure
-- Parallel Dots API
-
----
-
-## Recent Updates
-
-#### V 1.4
-*Added OAuth for MySpace* - 23 Jan 2003
 
 ---
 

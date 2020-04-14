@@ -1,22 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using TeamForkyAPI.Data;
 using TeamForkyAPI.Models.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace TeamForkyAPI.Models.Services
 {
     public class PatientService : IPatients
     {
-        public Task CreatePatient(Patients patients)
+        private HospitalDbContext _context { get; }
+
+        public PatientService(HospitalDbContext context)
+        {
+            _context = context;
+        }
+
+        public Task CreatePatient(Patient patients)
         {
             throw new NotImplementedException();
         }
 
-        public Task GetAllPatients()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<List<Patient>> GetAllPatients() => await _context.Patient.ToListAsync();
 
         public Task GetPatientByID(int ID)
         {
@@ -28,7 +33,7 @@ namespace TeamForkyAPI.Models.Services
             throw new NotImplementedException();
         }
 
-        public Task UpdatePatient(int ID)
+        public Task UpdatePatient(int ID, Patient patient)
         {
             throw new NotImplementedException();
         }

@@ -23,7 +23,7 @@ namespace TeamForkyAPI.Models.Services
             throw new NotImplementedException();
         }
 
-        public Task UpdateResourceByID(int ID)
+        public Task UpdateResourceByID(int ID, Resources resources)
         {
             throw new NotImplementedException();
         }
