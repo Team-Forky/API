@@ -4,7 +4,7 @@
 ---
 ### We are deployed on Azure!
 
-[project url here]
+https://hospitaller-team-forky-api.azurewebsites.net
 
 ---
 ## Web Application
@@ -26,7 +26,7 @@ can choose to opt-out of these features for privacy or data collection concerns.
 ---
 
 ## Tools Used
-Microsoft Visual Studio Community 2017 (Version 15.5.7)
+Microsoft Visual Studio Community 2019
 
 - C#
 - ASP.Net Core
@@ -57,28 +57,29 @@ Once the database has been created, the application can be run. Options for runn
 cd YourRepo/YourProject
 dotnet run
 ```
-Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit test framework. Tests have been provided for models, view models, controllers, and utility classes for the application.
-
 ---
 
-## Usage
-***[Provide some images of your app with brief description as title]***
+## Overview
 
-### Overview of Recent Posts
+### Reading all patients
+* route/api/Patients
 ![Overview of Recent Posts]()
 
-### Creating a Post
+### Viewing a patient
+* route/api/Patient/{id}
+![Details of Post]()
+
+### Creating a patient
+* route
 ![Post Creation]()
 
-### Enriching a Post
+### Updating a patient
+* route
 ![Enriching Post]()
 
-### Viewing Post Details
-![Details of Post]()
 
 ---
 ## Data Flow (Frontend, Backend, REST API)
-***[Add a clean and clear explanation of what the data flow is. Walk me through it.]***
 ![Data Flow Diagram](assets/ERD.png)
 
 ---
@@ -86,7 +87,7 @@ Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit
 
 ### Overall Project Schema
 ***[Add a description of your DB schema. Explain the relationships to me.]***
-![Database Schema](/assets/img/ERD.png)
+![Database Schema]()
 
 ---
 ## Model Properties and Requirements
@@ -120,7 +121,7 @@ Unit testing is included in the AmandaFE/FrontendTesting project using the xUnit
 ---
 
 ## Change Log
-1.1: *Deploy database and backend* - 13 April 2020  
+1.1: *Deploy database and backend with dummy DTO data for Patient* - 13 April 2020  
 
 ---
 
