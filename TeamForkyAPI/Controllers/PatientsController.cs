@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TeamForkyAPI.Data;
+using TeamForkyAPI.DTOs;
 using TeamForkyAPI.Models;
 using TeamForkyAPI.Models.Interfaces;
 
@@ -25,7 +26,7 @@ namespace TeamForkyAPI.Controllers
 
         // GET: api/Patients
         [HttpGet]
-        public async Task<ActionResult<List<Patient>>> GetPatients()
+        public async Task<ActionResult<IEnumerable<PatientsDTO>>> GetPatients()
         {
             return await _context.GetAllPatients();
         }

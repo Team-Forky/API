@@ -14,7 +14,6 @@ namespace TeamForkyAPI.Data
         {
 
         }
-        //TODO: override?
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PatientResources>().HasKey(x => new { x.PatientID, x.ResourcesID });
