@@ -16,6 +16,7 @@ namespace TeamForkyAPI.DTOs
 
         //Navigation Prop
         public List<PatientResourcesDTO> PatientResources { get; set; }
+        public List<ResourcesDTO> Resources { get; set; }
     }
 
     public enum Status

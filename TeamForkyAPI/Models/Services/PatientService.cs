@@ -48,31 +48,26 @@ namespace TeamForkyAPI.Models.Services
             PatientsDTO pDTO = ConvertToDTO(patient);
 
             var patientResources = await _context.PatientResources.Where(x => x.PatientID == ID)
-                                            //.Include(x => x.Resources)
-                                            //.ThenInclude(x => x.Name)
-                                            //.Include(x => x.Resources)
-                                            //.ThenInclude(x => x.Description)
+                                            .Include(x => x.Resources)
+                                            .ThenInclude(x => x.PatientResources)
+                                            .ThenInclude(x => x.Resources)
                                             .ToListAsync();
 
-            List<PatientResourcesDTO> patientRes = new List<PatientResourcesDTO>();
+         
+            List<ResourcesDTO> patientRes = new List<ResourcesDTO>();
 
             foreach (var pr in patientResources)
-            {
-                PatientResourcesDTO rm = new PatientResourcesDTO();
-                rm.ResourcesID = pr.ResourcesID;
-                rm.PatientID = pr.PatientID;
-     
+            {     
                 ResourcesDTO rdto = new ResourcesDTO
                 {
-                    
                     ResourcesType = pr.Resources.ResourcesType.ToString(),
                     Name = pr.Resources.Name,
                     Description = pr.Resources.Description
                 };
-                patientRes.Add(rm);
+                patientRes.Add(rdto);
 
             }
-            pDTO.PatientResources = patientRes;
+            pDTO.Resources = patientRes;
             return pDTO;
 
         }
