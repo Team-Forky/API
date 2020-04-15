@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TeamForkyAPI.Migrations
 {
-    public partial class data : Migration
+    public partial class newdummydata : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -68,8 +68,9 @@ namespace TeamForkyAPI.Migrations
                 columns: new[] { "ID", "Birthday", "CheckIn", "Name", "Status" },
                 values: new object[,]
                 {
-                    { 1, "02/16/1991", new DateTime(2020, 4, 13, 15, 35, 38, 99, DateTimeKind.Local).AddTicks(4759), "Teddy", 0 },
-                    { 2, "03/23/1986", new DateTime(2020, 4, 13, 15, 35, 38, 102, DateTimeKind.Local).AddTicks(7319), "Joseph", 2 }
+                    { 1, "02/16/1991", new DateTime(2020, 4, 14, 15, 54, 49, 28, DateTimeKind.Local).AddTicks(4196), "Teddy", 0 },
+                    { 2, "03/23/1986", new DateTime(2020, 4, 14, 15, 54, 49, 32, DateTimeKind.Local).AddTicks(5307), "Joseph", 2 },
+                    { 3, "08/29/1992", new DateTime(2020, 4, 14, 15, 54, 49, 32, DateTimeKind.Local).AddTicks(5376), "Matthew", 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -77,8 +78,20 @@ namespace TeamForkyAPI.Migrations
                 columns: new[] { "ID", "Description", "Name", "ResourcesType" },
                 values: new object[,]
                 {
-                    { 1, "02/16/1991", "Teddy", 0 },
-                    { 2, "02/16/1991", "Joseph", 2 }
+                    { 1, "Specialist in C# surgery", "Dr. Amanda", 0 },
+                    { 2, "Specialist in education touch up", "Dr. Brook", 0 },
+                    { 3, "Bacteria sanitizer", "Microwave", 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PatientResources",
+                columns: new[] { "PatientID", "ResourcesID", "ID" },
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 1, 4 },
+                    { 3, 2, 3 },
+                    { 1, 3, 2 }
                 });
 
             migrationBuilder.CreateIndex(

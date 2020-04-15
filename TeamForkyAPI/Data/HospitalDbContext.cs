@@ -34,6 +34,14 @@ namespace TeamForkyAPI.Data
                     Birthday = "03/23/1986",
                     CheckIn = DateTime.Now,
                     Status = Status.critical
+                },
+                new Patient
+                {
+                    ID = 3,
+                    Name = "Matthew",
+                    Birthday = "08/29/1992",
+                    CheckIn = DateTime.Now,
+                    Status = Status.critical
                 }
                 );
 
@@ -41,16 +49,50 @@ namespace TeamForkyAPI.Data
                 new Resources
                 {
                     ID = 1,
-                    Name = "Teddy",
-                    Description = "02/16/1991",
+                    Name = "Dr. Amanda",
+                    Description = "Specialist in C# surgery",
                     ResourcesType = ResourcesType.staff,
                 },
                 new Resources
                 {
                     ID = 2,
-                    Name = "Joseph",
-                    Description = "02/16/1991",
-                    ResourcesType = ResourcesType.room,
+                    Name = "Dr. Brook",
+                    Description = "Specialist in education touch up",
+                    ResourcesType = ResourcesType.staff,
+                },
+                new Resources
+                {
+                    ID = 3,
+                    Name = "Microwave",
+                    Description = "Bacteria sanitizer",
+                    ResourcesType = ResourcesType.equipment,
+                }
+                );
+
+            modelBuilder.Entity<PatientResources>().HasData(
+                new PatientResources
+                {
+                    ID = 1,
+                    PatientID = 1,
+                    ResourcesID = 1,
+                },
+                new PatientResources
+                {
+                    ID = 2,
+                    PatientID = 1,
+                    ResourcesID = 3,
+                },
+                new PatientResources
+                {
+                    ID = 3,
+                    PatientID = 3,
+                    ResourcesID = 2,
+                },
+                new PatientResources
+                {
+                    ID = 4,
+                    PatientID = 2,
+                    ResourcesID = 1,
                 }
                 );
         }

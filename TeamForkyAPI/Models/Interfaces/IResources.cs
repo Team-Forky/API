@@ -2,14 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using TeamForkyAPI.DTOs;
 
 namespace TeamForkyAPI.Models.Interfaces
 {
     public interface IResources
     {
-        Task GetResourcesByID(int ID);
-        Task UpdateResourceByID(int ID, Resources resources);
-        Task AddResources(Resources resources);
-        Task DeleteResources(int ID);
+        //Create
+        Task CreateResources(Resources resources);
+
+        //Read
+        Task<ActionResult<ResourcesDTO>> GetResourcesByID(int ID);
+        Task<List<ResourcesDTO>> GetAllResources();
+
+        //Update
+        Task UpdateResources(int ID, Resources resources);
+
+        //Delete
+        Task RemoveResources(int ID);
     }
 }
