@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TeamForkyAPI.Data;
 
 namespace TeamForkyAPI.Migrations
 {
     [DbContext(typeof(HospitalDbContext))]
-    partial class HospitalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200416164218_changed-status-prop-to-int")]
+    partial class changedstatusproptoint
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,7 +49,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 1,
                             Birthday = "02/16/1991",
-                            CheckIn = new DateTime(2020, 4, 16, 10, 49, 23, 149, DateTimeKind.Local).AddTicks(8949),
+                            CheckIn = new DateTime(2020, 4, 16, 9, 42, 17, 712, DateTimeKind.Local).AddTicks(6817),
                             Name = "Teddy",
                             Status = 0
                         },
@@ -55,7 +57,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 2,
                             Birthday = "03/23/1986",
-                            CheckIn = new DateTime(2020, 4, 16, 10, 49, 23, 154, DateTimeKind.Local).AddTicks(473),
+                            CheckIn = new DateTime(2020, 4, 16, 9, 42, 17, 716, DateTimeKind.Local).AddTicks(3757),
                             Name = "Joseph",
                             Status = 0
                         },
@@ -63,7 +65,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 3,
                             Birthday = "08/29/1992",
-                            CheckIn = new DateTime(2020, 4, 16, 10, 49, 23, 154, DateTimeKind.Local).AddTicks(538),
+                            CheckIn = new DateTime(2020, 4, 16, 9, 42, 17, 716, DateTimeKind.Local).AddTicks(3823),
                             Name = "Matthew",
                             Status = 0
                         });
