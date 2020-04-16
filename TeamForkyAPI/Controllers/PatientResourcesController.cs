@@ -21,11 +21,12 @@ namespace TeamForkyAPI.Controllers
         }
 
         // CREATE: api/patientresources/{patientID}/{resourcesID}
-        [HttpPost("{patientID}/{resourcesID}")]
-        public async Task<ActionResult<PatientResources>> CreatePatientResources(int patientID, int resourcesID)
+        [HttpPost]
+        public async Task<ActionResult<PatientResources>> AssignPatientResources(PatientResources patientResources)
         {
-            await _context.AddPatientResources(patientID, resourcesID);
-            return CreatedAtAction("GetPatientResources", new { PatientID = patientID, ResourcesID = resourcesID });
+            await _context.AssignPatientResources(patientResources);
+            
+            return CreatedAtAction("AssignPatientResources", new {patientResources});
         }
 
         // GET: api/patientresources

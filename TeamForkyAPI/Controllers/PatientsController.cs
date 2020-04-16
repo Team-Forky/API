@@ -20,9 +20,12 @@ namespace TeamForkyAPI.Controllers
     {
         //grabbing methods from interface
         private readonly IPatients _patientService;
-        public PatientsController(IPatients patientService)
+        private readonly IResources _resourcesService;
+
+        public PatientsController(IPatients patientService, IResources resourcesService)
         {
             _patientService = patientService;
+            _resourcesService = resourcesService;
         }
 
         // POST: api/patients
@@ -46,6 +49,22 @@ namespace TeamForkyAPI.Controllers
         {
 
             var patient = await _patientService.GetPatientByID(patientID);
+
+            if (patient == null)
+            {
+                return NotFound();
+            }
+
+            return patient;
+        }
+
+        // GET: api/patients/{patientID}/{resourceID}
+        // Get specific patient with specific resource
+        [HttpGet("{patientID}/{resourcesID}")]
+        public async Task<ActionResult<PatientsDTO>> GetSpecificResourcesforOnePatient(int patientID, int resourcesID)
+        {
+
+            var patient = await _patientService.GetSpecificResourcesforOnePatient(patientID, resourcesID);
 
             if (patient == null)
             {
@@ -79,5 +98,21 @@ namespace TeamForkyAPI.Controllers
 
             return NoContent();
         }
+
+        //// PUT: api/patients/{id}
+        //// update specific patient by entering ID
+        //[HttpPut("{patientID}/{resourcesID}")]
+        //public async Task<IActionResult> AssignSpecificResourceToPatient(int resourceID, int patientID, Resources resources, Patient patient)
+        //{
+            
+        //    if (patientID != patient.ID)
+        //    {
+        //        return BadRequest();
+        //    }
+
+        //    await _patientService.UpdatePatient(ID, patient);
+
+        //    return NoContent();
+        //}
     }
 }

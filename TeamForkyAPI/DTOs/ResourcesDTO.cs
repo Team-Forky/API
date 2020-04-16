@@ -11,6 +11,6 @@ namespace TeamForkyAPI.DTOs
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string ResourcesType { get; set; }
+        public int ResourcesType { get; set; }
     }
 }

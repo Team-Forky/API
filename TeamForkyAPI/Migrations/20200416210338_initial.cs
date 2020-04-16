@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TeamForkyAPI.Migrations
 {
-    public partial class test : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,11 +31,18 @@ namespace TeamForkyAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    ResourcesType = table.Column<int>(nullable: false)
+                    ResourcesType = table.Column<int>(nullable: false),
+                    PatientID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Resources", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Resources_Patient_PatientID",
+                        column: x => x.PatientID,
+                        principalTable: "Patient",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -67,19 +74,19 @@ namespace TeamForkyAPI.Migrations
                 columns: new[] { "ID", "Birthday", "CheckIn", "Name", "Status" },
                 values: new object[,]
                 {
-                    { 1, "02/16/1991", new DateTime(2020, 4, 14, 18, 58, 57, 310, DateTimeKind.Local).AddTicks(1729), "Teddy", 0 },
-                    { 2, "03/23/1986", new DateTime(2020, 4, 14, 18, 58, 57, 313, DateTimeKind.Local).AddTicks(9594), "Joseph", 2 },
-                    { 3, "08/29/1992", new DateTime(2020, 4, 14, 18, 58, 57, 313, DateTimeKind.Local).AddTicks(9657), "Matthew", 2 }
+                    { 1, "02/16/1991", new DateTime(2020, 4, 16, 14, 3, 37, 724, DateTimeKind.Local).AddTicks(2620), "Teddy", 0 },
+                    { 2, "03/23/1986", new DateTime(2020, 4, 16, 14, 3, 37, 742, DateTimeKind.Local).AddTicks(9350), "Joseph", 0 },
+                    { 3, "08/29/1992", new DateTime(2020, 4, 16, 14, 3, 37, 742, DateTimeKind.Local).AddTicks(9390), "Matthew", 0 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Resources",
-                columns: new[] { "ID", "Description", "Name", "ResourcesType" },
+                columns: new[] { "ID", "Description", "Name", "PatientID", "ResourcesType" },
                 values: new object[,]
                 {
-                    { 1, "Specialist in C# surgery", "Dr. Amanda", 0 },
-                    { 2, "Specialist in education touch up", "Dr. Brook", 0 },
-                    { 3, "Bacteria sanitizer", "Microwave", 1 }
+                    { 1, "Specialist in C# surgery", "Dr. Amanda", null, 0 },
+                    { 2, "Specialist in education touch up", "Dr. Brook", null, 0 },
+                    { 3, "Bacteria sanitizer", "Microwave", null, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -97,6 +104,11 @@ namespace TeamForkyAPI.Migrations
                 name: "IX_PatientResources_ResourcesID",
                 table: "PatientResources",
                 column: "ResourcesID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Resources_PatientID",
+                table: "Resources",
+                column: "PatientID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -105,10 +117,10 @@ namespace TeamForkyAPI.Migrations
                 name: "PatientResources");
 
             migrationBuilder.DropTable(
-                name: "Patient");
+                name: "Resources");
 
             migrationBuilder.DropTable(
-                name: "Resources");
+                name: "Patient");
         }
     }
 }

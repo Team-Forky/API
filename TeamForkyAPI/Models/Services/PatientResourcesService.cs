@@ -27,9 +27,9 @@ namespace TeamForkyAPI.Models.Services
         /// <param name="patientID">int</param>
         /// <param name="resourcesID">int</param>
         /// <returns></returns>
-        public async Task AddPatientResources(int patientID, int resourcesID)
+        public async Task AssignPatientResources(PatientResources patientResources)
         {
-            _context.PatientResources.Add(new PatientResources { PatientID = patientID, ResourcesID = resourcesID });
+            _context.PatientResources.Add(patientResources);
             await _context.SaveChangesAsync();
         }
 

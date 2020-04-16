@@ -10,8 +10,8 @@ using TeamForkyAPI.Data;
 namespace TeamForkyAPI.Migrations
 {
     [DbContext(typeof(HospitalDbContext))]
-    [Migration("20200415062339_data-test")]
-    partial class datatest
+    [Migration("20200416210338_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,7 +49,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 1,
                             Birthday = "02/16/1991",
-                            CheckIn = new DateTime(2020, 4, 14, 23, 23, 39, 1, DateTimeKind.Local).AddTicks(448),
+                            CheckIn = new DateTime(2020, 4, 16, 14, 3, 37, 724, DateTimeKind.Local).AddTicks(2620),
                             Name = "Teddy",
                             Status = 0
                         },
@@ -57,17 +57,17 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 2,
                             Birthday = "03/23/1986",
-                            CheckIn = new DateTime(2020, 4, 14, 23, 23, 39, 4, DateTimeKind.Local).AddTicks(3716),
+                            CheckIn = new DateTime(2020, 4, 16, 14, 3, 37, 742, DateTimeKind.Local).AddTicks(9350),
                             Name = "Joseph",
-                            Status = 2
+                            Status = 0
                         },
                         new
                         {
                             ID = 3,
                             Birthday = "08/29/1992",
-                            CheckIn = new DateTime(2020, 4, 14, 23, 23, 39, 4, DateTimeKind.Local).AddTicks(3781),
+                            CheckIn = new DateTime(2020, 4, 16, 14, 3, 37, 742, DateTimeKind.Local).AddTicks(9390),
                             Name = "Matthew",
-                            Status = 2
+                            Status = 0
                         });
                 });
 

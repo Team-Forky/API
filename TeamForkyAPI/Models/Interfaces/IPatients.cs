@@ -22,5 +22,8 @@ namespace TeamForkyAPI.Models.Interfaces
 
         //Delete
         Task RemovePatient(int ID);
+
+        //Get 1 resource from 1 patient
+        Task<PatientsDTO> GetSpecificResourcesforOnePatient(int patientID, int resourcesID);
     }
 }
