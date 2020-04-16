@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using TeamForkyAPI.DTOs;
 using System.Linq;
+using System.Text.Json;
 
 namespace TeamForkyAPI.Models.Services
 {
@@ -14,10 +15,13 @@ namespace TeamForkyAPI.Models.Services
     {
         //gain access to table properties
         private HospitalDbContext _context { get; }
+        private IResources _resources { get; }
 
-        public PatientService(HospitalDbContext context)
+        //constructor
+        public PatientService(HospitalDbContext context, IResources resources)
         {
             _context = context;
+            _resources = resources;
         }
 
         /// <summary>
@@ -32,9 +36,9 @@ namespace TeamForkyAPI.Models.Services
         }
 
         /// <summary>
-        /// Returns a list of patients from table
+        /// Convert patients object to DTO and get all resources from database
         /// </summary>
-        /// <returns></returns>
+        /// <returns>list patients DTO</returns>
         public async Task<List<PatientsDTO>> GetAllPatients()
         {
             List<Patient> patients = await _context.Patient.ToListAsync();
@@ -52,19 +56,20 @@ namespace TeamForkyAPI.Models.Services
         /// </summary>
         /// <param name="ID">int</param>
         /// <returns></returns>
-        public async Task<PatientsDTO> GetPatientByID(int ID)
+        public async Task<PatientsDTO> GetPatientByID(int patientID)
         {
-            var patient = await _context.Patient.FindAsync(ID);
+            var patient = await _context.Patient.FindAsync(patientID);
+
             PatientsDTO pDTO = ConvertToDTO(patient);
 
-            var patientResources = await _context.PatientResources.Where(x => x.PatientID == ID)
+            var patientResources = await _context.PatientResources.Where(x => x.PatientID == patientID)
                                             .Include(x => x.Resources)
                                             .ToListAsync();
-       
+
             List<ResourcesDTO> patientRes = new List<ResourcesDTO>();
 
             foreach (var pr in patientResources)
-            {     
+            {
                 ResourcesDTO rdto = new ResourcesDTO
                 {
                     ResourcesType = pr.Resources.ResourcesType.ToString(),
@@ -84,7 +89,6 @@ namespace TeamForkyAPI.Models.Services
         public async Task RemovePatient(int ID)
         {
             Patient patient = await _context.Patient.FindAsync(ID);
-
             _context.Patient.Remove(patient);    
             await _context.SaveChangesAsync();
         }
@@ -114,7 +118,7 @@ namespace TeamForkyAPI.Models.Services
                 Name = patient.Name,
                 Birthday = patient.Birthday,
                 CheckIn = patient.CheckIn,
-                Status = patient.Status.ToString()
+                Status = patient.Status
             };
             return pDTO;
         }

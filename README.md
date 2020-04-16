@@ -54,7 +54,7 @@ dotnet run
 ## Overview
 
 ### Reading all patients
-* route/api/Patients
+* [route/api/Patients]()
 * [Overview of Recent Posts]()
 
 ### Viewing a patient
