@@ -54,20 +54,20 @@ dotnet run
 ## Overview
 
 ### Reading all patients
-* [route/api/Patients]()
-* [Overview of Recent Posts]()
+* route/api/atients
+* [Overview of Recent Patients](https://hospitaller-team-forky-api.azurewebsites.net/api/patients)
 
 ### Viewing a patient
-* route/api/Patient/{id}
-* [Details of Post]()
+* route/api/patient/{id}
+* [Details of a Patient](https://hospitaller-team-forky-api.azurewebsites.net/api/patients/1)
 
 ### Creating a patient
-* route
-* [Post Creation]()
+* route/api/patient
+* [Patient Creation]()
 
 ### Updating a patient
 * route
-* [Enriching Post]()
+* [Updating Patient]()
 
 
 ---
