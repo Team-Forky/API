@@ -10,8 +10,8 @@ using TeamForkyAPI.Data;
 namespace TeamForkyAPI.Migrations
 {
     [DbContext(typeof(HospitalDbContext))]
-    [Migration("20200414230651_removed-another-list")]
-    partial class removedanotherlist
+    [Migration("20200415183653_data-test-3")]
+    partial class datatest3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,7 +49,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 1,
                             Birthday = "02/16/1991",
-                            CheckIn = new DateTime(2020, 4, 14, 16, 6, 51, 50, DateTimeKind.Local).AddTicks(7491),
+                            CheckIn = new DateTime(2020, 4, 15, 11, 36, 52, 544, DateTimeKind.Local).AddTicks(6),
                             Name = "Teddy",
                             Status = 0
                         },
@@ -57,7 +57,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 2,
                             Birthday = "03/23/1986",
-                            CheckIn = new DateTime(2020, 4, 14, 16, 6, 51, 55, DateTimeKind.Local).AddTicks(504),
+                            CheckIn = new DateTime(2020, 4, 15, 11, 36, 52, 547, DateTimeKind.Local).AddTicks(4913),
                             Name = "Joseph",
                             Status = 2
                         },
@@ -65,7 +65,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 3,
                             Birthday = "08/29/1992",
-                            CheckIn = new DateTime(2020, 4, 14, 16, 6, 51, 55, DateTimeKind.Local).AddTicks(569),
+                            CheckIn = new DateTime(2020, 4, 15, 11, 36, 52, 547, DateTimeKind.Local).AddTicks(4976),
                             Name = "Matthew",
                             Status = 2
                         });
@@ -79,9 +79,6 @@ namespace TeamForkyAPI.Migrations
                     b.Property<int>("ResourcesID")
                         .HasColumnType("int");
 
-                    b.Property<int>("ID")
-                        .HasColumnType("int");
-
                     b.HasKey("PatientID", "ResourcesID");
 
                     b.HasIndex("ResourcesID");
@@ -92,26 +89,22 @@ namespace TeamForkyAPI.Migrations
                         new
                         {
                             PatientID = 1,
-                            ResourcesID = 1,
-                            ID = 1
+                            ResourcesID = 1
                         },
                         new
                         {
                             PatientID = 1,
-                            ResourcesID = 3,
-                            ID = 2
+                            ResourcesID = 3
                         },
                         new
                         {
                             PatientID = 3,
-                            ResourcesID = 2,
-                            ID = 3
+                            ResourcesID = 2
                         },
                         new
                         {
                             PatientID = 2,
-                            ResourcesID = 1,
-                            ID = 4
+                            ResourcesID = 1
                         });
                 });
 
@@ -128,10 +121,15 @@ namespace TeamForkyAPI.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("PatientID")
+                        .HasColumnType("int");
+
                     b.Property<int>("ResourcesType")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("PatientID");
 
                     b.ToTable("Resources");
 
@@ -172,6 +170,13 @@ namespace TeamForkyAPI.Migrations
                         .HasForeignKey("ResourcesID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TeamForkyAPI.Models.Resources", b =>
+                {
+                    b.HasOne("TeamForkyAPI.Models.Patient", null)
+                        .WithMany("Resources")
+                        .HasForeignKey("PatientID");
                 });
 #pragma warning restore 612, 618
         }

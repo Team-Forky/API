@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TeamForkyAPI.Migrations
 {
-    public partial class newdummydata : Migration
+    public partial class test : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,8 +43,7 @@ namespace TeamForkyAPI.Migrations
                 columns: table => new
                 {
                     PatientID = table.Column<int>(nullable: false),
-                    ResourcesID = table.Column<int>(nullable: false),
-                    ID = table.Column<int>(nullable: false)
+                    ResourcesID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -68,9 +67,9 @@ namespace TeamForkyAPI.Migrations
                 columns: new[] { "ID", "Birthday", "CheckIn", "Name", "Status" },
                 values: new object[,]
                 {
-                    { 1, "02/16/1991", new DateTime(2020, 4, 14, 15, 54, 49, 28, DateTimeKind.Local).AddTicks(4196), "Teddy", 0 },
-                    { 2, "03/23/1986", new DateTime(2020, 4, 14, 15, 54, 49, 32, DateTimeKind.Local).AddTicks(5307), "Joseph", 2 },
-                    { 3, "08/29/1992", new DateTime(2020, 4, 14, 15, 54, 49, 32, DateTimeKind.Local).AddTicks(5376), "Matthew", 2 }
+                    { 1, "02/16/1991", new DateTime(2020, 4, 14, 18, 58, 57, 310, DateTimeKind.Local).AddTicks(1729), "Teddy", 0 },
+                    { 2, "03/23/1986", new DateTime(2020, 4, 14, 18, 58, 57, 313, DateTimeKind.Local).AddTicks(9594), "Joseph", 2 },
+                    { 3, "08/29/1992", new DateTime(2020, 4, 14, 18, 58, 57, 313, DateTimeKind.Local).AddTicks(9657), "Matthew", 2 }
                 });
 
             migrationBuilder.InsertData(
@@ -85,13 +84,13 @@ namespace TeamForkyAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "PatientResources",
-                columns: new[] { "PatientID", "ResourcesID", "ID" },
+                columns: new[] { "PatientID", "ResourcesID" },
                 values: new object[,]
                 {
-                    { 1, 1, 1 },
-                    { 2, 1, 4 },
-                    { 3, 2, 3 },
-                    { 1, 3, 2 }
+                    { 1, 1 },
+                    { 2, 1 },
+                    { 3, 2 },
+                    { 1, 3 }
                 });
 
             migrationBuilder.CreateIndex(

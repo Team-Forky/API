@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TeamForkyAPI.Data;
 
 namespace TeamForkyAPI.Migrations
 {
     [DbContext(typeof(HospitalDbContext))]
-    partial class HospitalDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200415015858_test")]
+    partial class test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,7 +49,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 1,
                             Birthday = "02/16/1991",
-                            CheckIn = new DateTime(2020, 4, 15, 11, 36, 52, 544, DateTimeKind.Local).AddTicks(6),
+                            CheckIn = new DateTime(2020, 4, 14, 18, 58, 57, 310, DateTimeKind.Local).AddTicks(1729),
                             Name = "Teddy",
                             Status = 0
                         },
@@ -55,7 +57,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 2,
                             Birthday = "03/23/1986",
-                            CheckIn = new DateTime(2020, 4, 15, 11, 36, 52, 547, DateTimeKind.Local).AddTicks(4913),
+                            CheckIn = new DateTime(2020, 4, 14, 18, 58, 57, 313, DateTimeKind.Local).AddTicks(9594),
                             Name = "Joseph",
                             Status = 2
                         },
@@ -63,7 +65,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 3,
                             Birthday = "08/29/1992",
-                            CheckIn = new DateTime(2020, 4, 15, 11, 36, 52, 547, DateTimeKind.Local).AddTicks(4976),
+                            CheckIn = new DateTime(2020, 4, 14, 18, 58, 57, 313, DateTimeKind.Local).AddTicks(9657),
                             Name = "Matthew",
                             Status = 2
                         });
@@ -119,15 +121,10 @@ namespace TeamForkyAPI.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PatientID")
-                        .HasColumnType("int");
-
                     b.Property<int>("ResourcesType")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("PatientID");
 
                     b.ToTable("Resources");
 
@@ -168,13 +165,6 @@ namespace TeamForkyAPI.Migrations
                         .HasForeignKey("ResourcesID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("TeamForkyAPI.Models.Resources", b =>
-                {
-                    b.HasOne("TeamForkyAPI.Models.Patient", null)
-                        .WithMany("Resources")
-                        .HasForeignKey("PatientID");
                 });
 #pragma warning restore 612, 618
         }

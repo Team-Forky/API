@@ -18,18 +18,15 @@ namespace TeamForkyAPI.Controllers
     [ApiController]
     public class PatientsController : ControllerBase
     {
+        //grabbing methods from interface
         private readonly IPatients _patientService;
         public PatientsController(IPatients patientService)
         {
             _patientService = patientService;
         }
 
-        // GET: api/patients
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<PatientsDTO>>> GetPatients() => await _patientService.GetAllPatients();
-
-
         // POST: api/patients
+        // Create a patient
         [HttpPost]
         public async Task<ActionResult<Patient>> CreatePatient(Patient patient)
         {
@@ -37,12 +34,18 @@ namespace TeamForkyAPI.Controllers
             return CreatedAtAction("CreatePatient", new { id = patient.ID }, patient);
         }
 
-        // GET: api/patients/5
-        /// Get route that shows specific patient when user picks
-        [HttpGet("{id}")]
-        public async Task<ActionResult<PatientsDTO>> GetPatient(int ID)
+        // GET: api/patients
+        // Get all patients
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PatientsDTO>>> GetPatients() => await _patientService.GetAllPatients();
+
+        // GET: api/patients/{patientID}
+        // Get specific patient with resources by patient ID and resource ID
+        [HttpGet("{patientID}")]
+        public async Task<ActionResult<PatientsDTO>> GetPatientWithResources(int patientID)
         {
-            var patient = await _patientService.GetPatientByID(ID);
+
+            var patient = await _patientService.GetPatientByID(patientID);
 
             if (patient == null)
             {
@@ -52,7 +55,8 @@ namespace TeamForkyAPI.Controllers
             return patient;
         }
 
-        // DELETE: api/patients/5
+        // DELETE: api/patients/{id}
+        // Delete specific patient by entering ID
         [HttpDelete("{id}")]
         public async Task<ActionResult<Patient>> DeletePatient(int ID)
         {
@@ -61,7 +65,8 @@ namespace TeamForkyAPI.Controllers
             return NoContent();
         }
 
-        // PUT: api/patients/5
+        // PUT: api/patients/{id}
+        // update specific patient by entering ID
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePatient(int ID, Patient patient)
         {

@@ -10,8 +10,11 @@ namespace TeamForkyAPI.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string Birthday { get; set; }
-        public Status Status { get; set; }
+        public int Status { get; set; }
         public DateTime CheckIn { get; set; }
+
+        //Navigation Property; links to resources object
+        public List<Resources> Resources { get; set; }
     }
 
     public enum Status
