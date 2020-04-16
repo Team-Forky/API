@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TeamForkyAPI.Migrations
 {
-    public partial class data : Migration
+    public partial class datatest1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,21 +12,21 @@ namespace TeamForkyAPI.Migrations
                 keyColumn: "ID",
                 keyValue: 1,
                 column: "CheckIn",
-                value: new DateTime(2020, 4, 14, 16, 9, 49, 623, DateTimeKind.Local).AddTicks(4303));
+                value: new DateTime(2020, 4, 15, 0, 16, 2, 199, DateTimeKind.Local).AddTicks(5898));
 
             migrationBuilder.UpdateData(
                 table: "Patient",
                 keyColumn: "ID",
                 keyValue: 2,
                 column: "CheckIn",
-                value: new DateTime(2020, 4, 14, 16, 9, 49, 627, DateTimeKind.Local).AddTicks(9340));
+                value: new DateTime(2020, 4, 15, 0, 16, 2, 203, DateTimeKind.Local).AddTicks(43));
 
             migrationBuilder.UpdateData(
                 table: "Patient",
                 keyColumn: "ID",
                 keyValue: 3,
                 column: "CheckIn",
-                value: new DateTime(2020, 4, 14, 16, 9, 49, 628, DateTimeKind.Local).AddTicks(599));
+                value: new DateTime(2020, 4, 15, 0, 16, 2, 203, DateTimeKind.Local).AddTicks(176));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -36,21 +36,21 @@ namespace TeamForkyAPI.Migrations
                 keyColumn: "ID",
                 keyValue: 1,
                 column: "CheckIn",
-                value: new DateTime(2020, 4, 14, 16, 6, 51, 50, DateTimeKind.Local).AddTicks(7491));
+                value: new DateTime(2020, 4, 14, 23, 23, 39, 1, DateTimeKind.Local).AddTicks(448));
 
             migrationBuilder.UpdateData(
                 table: "Patient",
                 keyColumn: "ID",
                 keyValue: 2,
                 column: "CheckIn",
-                value: new DateTime(2020, 4, 14, 16, 6, 51, 55, DateTimeKind.Local).AddTicks(504));
+                value: new DateTime(2020, 4, 14, 23, 23, 39, 4, DateTimeKind.Local).AddTicks(3716));
 
             migrationBuilder.UpdateData(
                 table: "Patient",
                 keyColumn: "ID",
                 keyValue: 3,
                 column: "CheckIn",
-                value: new DateTime(2020, 4, 14, 16, 6, 51, 55, DateTimeKind.Local).AddTicks(569));
+                value: new DateTime(2020, 4, 14, 23, 23, 39, 4, DateTimeKind.Local).AddTicks(3781));
         }
     }
 }

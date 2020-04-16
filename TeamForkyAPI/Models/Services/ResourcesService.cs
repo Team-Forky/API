@@ -16,6 +16,7 @@ namespace TeamForkyAPI.Models.Services
         //gain access to table properties
         private HospitalDbContext _context { get; }
 
+        //constructor
         public ResourcesService(HospitalDbContext context)
         {
             _context = context;

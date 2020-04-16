@@ -25,7 +25,7 @@ namespace TeamForkyAPI.Data
                     Name = "Teddy",
                     Birthday = "02/16/1991",
                     CheckIn = DateTime.Now,
-                    Status = Status.stable,
+                    Status =0,
                 },
                 new Patient
                 {
@@ -33,7 +33,7 @@ namespace TeamForkyAPI.Data
                     Name = "Joseph",
                     Birthday = "03/23/1986",
                     CheckIn = DateTime.Now,
-                    Status = Status.critical
+                    Status = 0
                 },
                 new Patient
                 {
@@ -41,7 +41,7 @@ namespace TeamForkyAPI.Data
                     Name = "Matthew",
                     Birthday = "08/29/1992",
                     CheckIn = DateTime.Now,
-                    Status = Status.critical
+                    Status = 0
                 }
                 );
 
@@ -72,25 +72,25 @@ namespace TeamForkyAPI.Data
             modelBuilder.Entity<PatientResources>().HasData(
                 new PatientResources
                 {
-                    ID = 1,
+                    //ID = 1,
                     PatientID = 1,
                     ResourcesID = 1,
                 },
                 new PatientResources
                 {
-                    ID = 2,
+                    //ID = 2,
                     PatientID = 1,
                     ResourcesID = 3,
                 },
                 new PatientResources
                 {
-                    ID = 3,
+                    //ID = 3,
                     PatientID = 3,
                     ResourcesID = 2,
                 },
                 new PatientResources
                 {
-                    ID = 4,
+                    //ID = 4,
                     PatientID = 2,
                     ResourcesID = 1,
                 }

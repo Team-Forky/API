@@ -13,6 +13,7 @@ namespace TeamForkyAPI.Controllers
     [ApiController]
     public class ResourcesController : ControllerBase
     {
+        // grab methods from interface
         private readonly IResources _resourcesService;
 
         public ResourcesController(IResources resourcesService)
@@ -20,12 +21,8 @@ namespace TeamForkyAPI.Controllers
             _resourcesService = resourcesService;
         }
 
-        // GET: api/resources
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ResourcesDTO>>> GetResources() => await _resourcesService.GetAllResources();
-
-
         // POST: api/resources
+        // Create a resource
         [HttpPost]
         public async Task<ActionResult<Resources>> CreateResources(Resources resources)
         {
@@ -33,8 +30,15 @@ namespace TeamForkyAPI.Controllers
             return CreatedAtAction("CreateResources", new { id = resources.ID }, resources);
         }
 
-        // GET: api/resources/5
-        /// Get route that shows specific patient when user picks
+        // GET: api/resources
+        // Get all resources
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ResourcesDTO>>> GetResources() => await _resourcesService.GetAllResources();
+
+
+
+        // GET: api/resources/{id}
+        // Get a specific resource by entering ID
         [HttpGet("{id}")]
         public async Task<ActionResult<ResourcesDTO>> GetResourcesByID(int ID)
         {
@@ -49,6 +53,7 @@ namespace TeamForkyAPI.Controllers
         }
 
         // DELETE: api/resources/5
+        // Delete a specific resource by entering ID
         [HttpDelete("{id}")]
         public async Task<ActionResult<Resources>> DeleteResources(int ID)
         {
@@ -58,6 +63,7 @@ namespace TeamForkyAPI.Controllers
         }
 
         // PUT: api/resources/5
+        // Update specific resource by entering ID 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateResources(int ID, Resources resources)
         {
