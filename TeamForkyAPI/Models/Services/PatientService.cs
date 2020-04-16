@@ -72,9 +72,43 @@ namespace TeamForkyAPI.Models.Services
             {
                 ResourcesDTO rdto = new ResourcesDTO
                 {
-                    ResourcesType = pr.Resources.ResourcesType.ToString(),
+                    ResourcesType = pr.Resources.ResourcesType,
                     Name = pr.Resources.Name,
-                    Description = pr.Resources.Description
+                    Description = pr.Resources.Description,
+                    ID = pr.ResourcesID
+                };
+                patientRes.Add(rdto);
+            }
+            pDTO.Resources = patientRes;
+            return pDTO;
+        }
+
+        /// <summary>
+        /// Get patient and specific ID
+        /// </summary>
+        /// <param name="ID">int</param>
+        /// <returns></returns>
+        public async Task<PatientsDTO> GetSpecificResourcesforOnePatient(int patientID, int resourcesID)
+        {
+            var patient = await _context.Patient.FindAsync(patientID);
+
+            PatientsDTO pDTO = ConvertToDTO(patient);
+
+            var patientResources = await _context.PatientResources.Where(x => x.PatientID == patientID)
+                                            .Include(x => x.Resources)
+                                            .Where(x => x.ResourcesID == resourcesID)
+                                            .ToListAsync();
+
+            List<ResourcesDTO> patientRes = new List<ResourcesDTO>();
+
+            foreach (var pr in patientResources)
+            {
+                ResourcesDTO rdto = new ResourcesDTO
+                {
+                    ResourcesType = pr.Resources.ResourcesType,
+                    Name = pr.Resources.Name,
+                    Description = pr.Resources.Description,
+                    ID = pr.ResourcesID
                 };
                 patientRes.Add(rdto);
             }
@@ -94,7 +128,7 @@ namespace TeamForkyAPI.Models.Services
         }
 
         /// <summary>
-        /// Update Patient by ID TODO but cant include status or it will break
+        /// Update Patient by ID 
         /// </summary>
         /// <param name="ID"></param>
         /// <param name="patient"></param>

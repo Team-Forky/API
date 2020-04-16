@@ -98,7 +98,7 @@ namespace TeamForkyAPI.Models.Services
                 ID = resources.ID,
                 Name = resources.Name,
                 Description = resources.Description,
-                ResourcesType = resources.ResourcesType.ToString()
+                ResourcesType = resources.ResourcesType
             };
             return rDTO;
         }

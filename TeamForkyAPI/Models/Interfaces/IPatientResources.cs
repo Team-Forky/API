@@ -9,7 +9,7 @@ namespace TeamForkyAPI.Models.Interfaces
     public interface IPatientResources
     {
         // Create
-        Task AddPatientResources(int patientID, int resourcesID);
+        Task AssignPatientResources(PatientResources patientResources);
 
         //Read all
         Task<List<PatientResourcesDTO>> GetAllPatientResources();

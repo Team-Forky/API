@@ -36,7 +36,7 @@ namespace TeamForkyAPI
 
             // add connection to database
             services.AddDbContext<HospitalDbContext>(options =>
-      options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //loophandler maybe?
             //mapping
             services.AddTransient<IPatients, PatientService>();

@@ -47,7 +47,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 1,
                             Birthday = "02/16/1991",
-                            CheckIn = new DateTime(2020, 4, 16, 10, 49, 23, 149, DateTimeKind.Local).AddTicks(8949),
+                            CheckIn = new DateTime(2020, 4, 16, 14, 3, 37, 724, DateTimeKind.Local).AddTicks(2620),
                             Name = "Teddy",
                             Status = 0
                         },
@@ -55,7 +55,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 2,
                             Birthday = "03/23/1986",
-                            CheckIn = new DateTime(2020, 4, 16, 10, 49, 23, 154, DateTimeKind.Local).AddTicks(473),
+                            CheckIn = new DateTime(2020, 4, 16, 14, 3, 37, 742, DateTimeKind.Local).AddTicks(9350),
                             Name = "Joseph",
                             Status = 0
                         },
@@ -63,7 +63,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 3,
                             Birthday = "08/29/1992",
-                            CheckIn = new DateTime(2020, 4, 16, 10, 49, 23, 154, DateTimeKind.Local).AddTicks(538),
+                            CheckIn = new DateTime(2020, 4, 16, 14, 3, 37, 742, DateTimeKind.Local).AddTicks(9390),
                             Name = "Matthew",
                             Status = 0
                         });

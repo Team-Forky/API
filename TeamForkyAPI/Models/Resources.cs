@@ -10,7 +10,7 @@ namespace TeamForkyAPI.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public ResourcesType ResourcesType { get; set; }
+        public int ResourcesType { get; set; }
     }
 
     public enum ResourcesType

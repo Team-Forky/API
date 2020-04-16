@@ -51,21 +51,21 @@ namespace TeamForkyAPI.Data
                     ID = 1,
                     Name = "Dr. Amanda",
                     Description = "Specialist in C# surgery",
-                    ResourcesType = ResourcesType.staff,
+                    ResourcesType = 0,
                 },
                 new Resources
                 {
                     ID = 2,
                     Name = "Dr. Brook",
                     Description = "Specialist in education touch up",
-                    ResourcesType = ResourcesType.staff,
+                    ResourcesType = 0,
                 },
                 new Resources
                 {
                     ID = 3,
                     Name = "Microwave",
                     Description = "Bacteria sanitizer",
-                    ResourcesType = ResourcesType.equipment,
+                    ResourcesType = 0,
                 }
                 );
 
