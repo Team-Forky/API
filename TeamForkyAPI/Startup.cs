@@ -66,7 +66,7 @@ namespace TeamForkyAPI
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "https://hospitaller-team-forky-api.azurewebsites.net/api");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hospitaller API");
                 c.RoutePrefix = string.Empty;
             });
 
