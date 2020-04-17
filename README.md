@@ -126,8 +126,8 @@ dotnet run
 ---
 
 ## Authors
-Joseph Hangarter
-Teddy Damian
+* Joseph Hangarter
+* Teddy Damian
 ---
 
 For more information on Markdown: https://www.markdownguide.org/cheat-sheet
