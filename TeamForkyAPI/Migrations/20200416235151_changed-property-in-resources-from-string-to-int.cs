@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TeamForkyAPI.Migrations
 {
-    public partial class initial : Migration
+    public partial class changedpropertyinresourcesfromstringtoint : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -74,9 +74,9 @@ namespace TeamForkyAPI.Migrations
                 columns: new[] { "ID", "Birthday", "CheckIn", "Name", "Status" },
                 values: new object[,]
                 {
-                    { 1, "02/16/1991", new DateTime(2020, 4, 16, 14, 3, 37, 724, DateTimeKind.Local).AddTicks(2620), "Teddy", 0 },
-                    { 2, "03/23/1986", new DateTime(2020, 4, 16, 14, 3, 37, 742, DateTimeKind.Local).AddTicks(9350), "Joseph", 0 },
-                    { 3, "08/29/1992", new DateTime(2020, 4, 16, 14, 3, 37, 742, DateTimeKind.Local).AddTicks(9390), "Matthew", 0 }
+                    { 1, "02/16/1991", new DateTime(2020, 4, 16, 16, 51, 50, 688, DateTimeKind.Local).AddTicks(8172), "Teddy", 0 },
+                    { 2, "03/23/1986", new DateTime(2020, 4, 16, 16, 51, 50, 692, DateTimeKind.Local).AddTicks(1504), "Joseph", 0 },
+                    { 3, "08/29/1992", new DateTime(2020, 4, 16, 16, 51, 50, 692, DateTimeKind.Local).AddTicks(1564), "Matthew", 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -86,7 +86,7 @@ namespace TeamForkyAPI.Migrations
                 {
                     { 1, "Specialist in C# surgery", "Dr. Amanda", null, 0 },
                     { 2, "Specialist in education touch up", "Dr. Brook", null, 0 },
-                    { 3, "Bacteria sanitizer", "Microwave", null, 1 }
+                    { 3, "Bacteria sanitizer", "Microwave", null, 0 }
                 });
 
             migrationBuilder.InsertData(
