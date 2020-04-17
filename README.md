@@ -26,6 +26,7 @@ Microsoft Visual Studio Community 2019
 - Entity Framework
 - MVC
 - Azure
+- Swagger
 - Microsoft SQL Server Management Studio
 
 ---
@@ -83,10 +84,7 @@ dotnet run
 
 ---
 ## Data Model
-
-### Overall Project Schema
-***[Add a description of your DB schema. Explain the relationships to me.]***
-[Database Schema]()
+![](assets/datamodel.png)
 
 ---
 ## Model Properties and Requirements
