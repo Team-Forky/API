@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using TeamForkyAPI.Data;
 using TeamForkyAPI.Models.Interfaces;
 using TeamForkyAPI.Models.Services;
+using Microsoft.OpenApi.Models;
 
 namespace TeamForkyAPI
 {
@@ -37,11 +38,17 @@ namespace TeamForkyAPI
             // add connection to database
             services.AddDbContext<HospitalDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            //loophandler maybe?
+
             //mapping
             services.AddTransient<IPatients, PatientService>();
             services.AddTransient<IPatientResources, PatientResourcesService>();
             services.AddTransient<IResources, ResourcesService>();
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hospitaller API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,7 +58,18 @@ namespace TeamForkyAPI
             {
                 app.UseDeveloperExceptionPage();
             }
-            
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "https://hospitaller-team-forky-api.azurewebsites.net/api");
+                c.RoutePrefix = string.Empty;
+            });
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
