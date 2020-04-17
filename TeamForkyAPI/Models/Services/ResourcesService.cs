@@ -36,7 +36,7 @@ namespace TeamForkyAPI.Models.Services
         /// <summary>
         /// Convert resource object to DTO and get all resources from database
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Resource DTO</returns>
         public async Task<List<ResourcesDTO>> GetAllResources()
         {
             List<Resources> resources = await _context.Resources.ToListAsync();
@@ -50,7 +50,7 @@ namespace TeamForkyAPI.Models.Services
         }
 
         /// <summary>
-        /// Converted resource object to DTO and retrieve single patient with ID
+        /// Converted resource object to DTO and retrieve single resource with ID
         /// </summary>
         /// <param name="ID">int</param>
         /// <returns>resource DTO object</returns>
@@ -64,7 +64,7 @@ namespace TeamForkyAPI.Models.Services
         /// <summary>
         /// Remove a specific resource by entering an ID
         /// </summary>
-        /// <param name="ID">in</param>
+        /// <param name="ID">int</param>
         /// <returns></returns>
         public async Task RemoveResources(int ID)
         {

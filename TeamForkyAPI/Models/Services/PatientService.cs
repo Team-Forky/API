@@ -52,10 +52,10 @@ namespace TeamForkyAPI.Models.Services
         }
 
         /// <summary>
-        /// Get patient by ID
+        /// Get patient with all resources by ID
         /// </summary>
         /// <param name="ID">int</param>
-        /// <returns></returns>
+        /// <returns>Patient DTO</returns>
         public async Task<PatientsDTO> GetPatientByID(int patientID)
         {
             var patient = await _context.Patient.FindAsync(patientID);
@@ -84,10 +84,11 @@ namespace TeamForkyAPI.Models.Services
         }
 
         /// <summary>
-        /// Get patient and specific ID
+        /// Get patient with specific resource
         /// </summary>
-        /// <param name="ID">int</param>
-        /// <returns></returns>
+        /// <param name="patientID">int</param>
+        /// <param name="resourcesID">int</param>
+        /// <returns>Patient DTO</returns>
         public async Task<PatientsDTO> GetSpecificResourcesforOnePatient(int patientID, int resourcesID)
         {
             var patient = await _context.Patient.FindAsync(patientID);
@@ -130,8 +131,8 @@ namespace TeamForkyAPI.Models.Services
         /// <summary>
         /// Update Patient by ID 
         /// </summary>
-        /// <param name="ID"></param>
-        /// <param name="patient"></param>
+        /// <param name="ID">int</param>
+        /// <param name="patient">patient object</param>
         /// <returns></returns>
         public async Task UpdatePatient(int ID, Patient patient)
         {
@@ -142,8 +143,8 @@ namespace TeamForkyAPI.Models.Services
         /// <summary>
         /// Convert To DTOs
         /// </summary>
-        /// <param name="patient"></param>
-        /// <returns></returns>
+        /// <param name="patient">patient object</param>
+        /// <returns>Patient DTO</returns>
         public PatientsDTO ConvertToDTO(Patient patient)
         {
             PatientsDTO pDTO = new PatientsDTO()
