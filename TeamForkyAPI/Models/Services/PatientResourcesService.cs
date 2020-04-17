@@ -22,10 +22,9 @@ namespace TeamForkyAPI.Models.Services
         }
 
         /// <summary>
-        /// Creates a new patient resources
+        /// Creates a new patient resource
         /// </summary>
-        /// <param name="patientID">int</param>
-        /// <param name="resourcesID">int</param>
+        /// <param name="patientResources">patient resource object</param>
         /// <returns></returns>
         public async Task AssignPatientResources(PatientResources patientResources)
         {
