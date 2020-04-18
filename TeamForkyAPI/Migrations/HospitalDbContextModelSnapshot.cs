@@ -47,7 +47,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 1,
                             Birthday = "02/16/1991",
-                            CheckIn = new DateTime(2020, 4, 16, 14, 3, 37, 724, DateTimeKind.Local).AddTicks(2620),
+                            CheckIn = new DateTime(2020, 4, 16, 16, 51, 50, 688, DateTimeKind.Local).AddTicks(8172),
                             Name = "Teddy",
                             Status = 0
                         },
@@ -55,7 +55,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 2,
                             Birthday = "03/23/1986",
-                            CheckIn = new DateTime(2020, 4, 16, 14, 3, 37, 742, DateTimeKind.Local).AddTicks(9350),
+                            CheckIn = new DateTime(2020, 4, 16, 16, 51, 50, 692, DateTimeKind.Local).AddTicks(1504),
                             Name = "Joseph",
                             Status = 0
                         },
@@ -63,7 +63,7 @@ namespace TeamForkyAPI.Migrations
                         {
                             ID = 3,
                             Birthday = "08/29/1992",
-                            CheckIn = new DateTime(2020, 4, 16, 14, 3, 37, 742, DateTimeKind.Local).AddTicks(9390),
+                            CheckIn = new DateTime(2020, 4, 16, 16, 51, 50, 692, DateTimeKind.Local).AddTicks(1564),
                             Name = "Matthew",
                             Status = 0
                         });
@@ -151,7 +151,7 @@ namespace TeamForkyAPI.Migrations
                             ID = 3,
                             Description = "Bacteria sanitizer",
                             Name = "Microwave",
-                            ResourcesType = 1
+                            ResourcesType = 0
                         });
                 });
 

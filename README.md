@@ -13,8 +13,9 @@
 The API consists of 3 Tables that consists of Patients, Resources, & Patient Resources.
 The backend was written in C# using ASP.NET Core 2, Entity Framework Core, and the MVC framework.
 
-* With this API, a care-taker will be able to enter, retrieve, update, or remove a patient from a database. 
+* With this API, a care-taker will be able to enter, retrieve, update, or remove a patient/resource from a database. 
 * Care-taker will be able to enter a patients name, age, status, and check in date/time when created.
+* Care-taker will be able to assign an available specific resource to a patient. 
 ---
 
 ## Tools Used
@@ -25,6 +26,8 @@ Microsoft Visual Studio Community 2019
 - Entity Framework
 - MVC
 - Azure
+- Swagger
+- Microsoft SQL Server Management Studio
 
 ---
 
@@ -53,21 +56,26 @@ dotnet run
 
 ## Overview
 
-### Reading all patients
-* route/api/atients
-* [Overview of Recent Patients](https://hospitaller-team-forky-api.azurewebsites.net/api/patients)
+### Viewing all patients
+#### route/api/patients
+![Overview of Recent Patients](assets/readallpatients.png)
 
-### Viewing a patient
-* route/api/patient/{id}
-* [Details of a Patient](https://hospitaller-team-forky-api.azurewebsites.net/api/patients/1)
+### Viewing a patient with all resources
+#### route/api/patient/patientID
+![Details of a Patient](assets/patientwithallresrouces.png)
+
+### Viewing a patient with a specific resource
+#### route/api/patients/patientID/resourceID
+![Overview of patient with specific resource](assets/patientwithresource.png)
 
 ### Creating a patient
-* route/api/patient
-* [Patient Creation]()
+#### route/api/patient
+![Patient Creation](assets/createpatient.png)
 
 ### Updating a patient
-* route
-* [Updating Patient]()
+#### route/api/patient/patientID
+![Updating Patient](assets/updatepatient.png)
+![Updating Patient](assets/showupdatepatient.png)
 
 
 ---
@@ -76,10 +84,7 @@ dotnet run
 
 ---
 ## Data Model
-
-### Overall Project Schema
-***[Add a description of your DB schema. Explain the relationships to me.]***
-[Database Schema]()
+![](assets/datamodel.png)
 
 ---
 ## Model Properties and Requirements
@@ -91,7 +96,7 @@ dotnet run
 | ID  | int | YES |
 | Name | string | YES |
 | Birthday | string | YES |
-| Status | enum | YES |
+| Status | int | YES |
 | CheckIn | string | YES |
 
 ### Resources
@@ -101,7 +106,7 @@ dotnet run
 | ID  | int | YES |
 | Name | string | YES |
 | Description | string | YES |
-| Type | enum | YES |
+| Type | int | YES |
 
 ### PatientResources
 
@@ -113,13 +118,16 @@ dotnet run
 ---
 
 ## Change Log
-1.1: *Deploy database and backend with dummy DTO data for Patient* - 13 April 2020  
+* 1.4: *Added opertational join table LINQ queries. Swagger documentation added when launching app.*  - 16 April 2020
+* 1.3: *CRUD Methods added for Resources and Patient Resources* - 15 April 2020
+* 1.2: *CRUD Methods added for Patient* - 14 April 2020 
+* 1.1: *Deploy database and backend with dummy DTO data for Patient* - 13 April 2020  
 
 ---
 
 ## Authors
-Joseph Hangarter
-Teddy Damian
+* Joseph Hangarter
+* Teddy Damian
 ---
 
 For more information on Markdown: https://www.markdownguide.org/cheat-sheet
