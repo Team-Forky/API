@@ -3,9 +3,8 @@
 ## Project Hospitaller- Back end
 ---
 ### We are deployed on Azure!
-* Back end - https://hospitaller-team-forky-api.azurewebsites.net
-* Fron end - https://hospitallerfe-teamforky.azurewebsites.net
-
+* Swagger Documentation Back end API - https://hospitaller-team-forky-api.azurewebsites.net/index.html
+* Front end - https://hospitallerfe-teamforky.azurewebsites.net
 
 ---
 ## Web Application
