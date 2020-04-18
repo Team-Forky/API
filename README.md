@@ -27,6 +27,7 @@ Microsoft Visual Studio Community 2019
 - Azure
 - Swagger
 - Microsoft SQL Server Management Studio
+- Postman
 
 ---
 
