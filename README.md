@@ -10,7 +10,7 @@
 ## Web Application
 
 The API consists of 3 Tables that consists of Patients, Resources, & Patient Resources.
-The backend was written in C# using ASP.NET Core 2, Entity Framework Core, and the MVC framework.
+The backend was written in C# using ASP.NET Core, Entity Framework Core, and the MVC framework.
 
 * With this API, a care-taker will be able to enter, retrieve, update, or remove a patient/resource from a database. 
 * Care-taker will be able to enter a patients name, age, status, and check in date/time when created.
