@@ -3,14 +3,14 @@
 ## Project Hospitaller- Back end
 ---
 ### We are deployed on Azure!
-* Swagger Documentation Back end API - https://hospitaller-team-forky-api.azurewebsites.net/index.html
+* Swagger Documentation Back end API - https://hospitaller-api.azurewebsites.net/
 * Front end - https://hospitallerfe-teamforky.azurewebsites.net
 
 ---
 ## Web Application
 
 The API consists of 3 Tables that consists of Patients, Resources, & Patient Resources.
-The backend was written in C# using ASP.NET Core, Entity Framework Core, and the MVC framework.
+The backend was written in C# using ASP.NET Core, Entity Framework Core, and the MVC design pattern.
 
 * With this API, a care-taker will be able to enter, retrieve, update, or remove a patient/resource from a database. 
 * Care-taker will be able to enter a patients name, age, status, and check in date/time when created.
@@ -118,6 +118,7 @@ dotnet run
 ---
 
 ## Change Log
+* 1.5: *Fixed bug where routes that took an id parameter could not map to the ID parameter due to capitalization* - August 16 2020
 * 1.4: *Added opertational join table LINQ queries. Swagger documentation added when launching app.*  - 16 April 2020
 * 1.3: *CRUD Methods added for Resources and Patient Resources* - 15 April 2020
 * 1.2: *CRUD Methods added for Patient* - 14 April 2020 
@@ -128,6 +129,7 @@ dotnet run
 ## Authors
 * Joseph Hangarter
 * Teddy Damian
+* Andrew Casper
 ---
 
 For more information on Markdown: https://www.markdownguide.org/cheat-sheet
