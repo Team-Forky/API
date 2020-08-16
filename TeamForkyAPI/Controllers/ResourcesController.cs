@@ -40,9 +40,9 @@ namespace TeamForkyAPI.Controllers
         // GET: api/resources/{id}
         // Get a specific resource by entering ID
         [HttpGet("{id}")]
-        public async Task<ActionResult<ResourcesDTO>> GetResourcesByID(int ID)
+        public async Task<ActionResult<ResourcesDTO>> GetResourcesByID(int id)
         {
-            var resources = await _resourcesService.GetResourcesByID(ID);
+            var resources = await _resourcesService.GetResourcesByID(id);
 
             if (resources == null)
             {
@@ -55,9 +55,9 @@ namespace TeamForkyAPI.Controllers
         // DELETE: api/resources/5
         // Delete a specific resource by entering ID
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Resources>> DeleteResources(int ID)
+        public async Task<ActionResult<Resources>> DeleteResources(int id)
         {
-            await _resourcesService.RemoveResources(ID);
+            await _resourcesService.RemoveResources(id);
 
             return NoContent();
         }
@@ -65,14 +65,14 @@ namespace TeamForkyAPI.Controllers
         // PUT: api/resources/5
         // Update specific resource by entering ID 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateResources(int ID, Resources resources)
+        public async Task<IActionResult> UpdateResources(int id, Resources resources)
         {
-            if (ID != resources.ID)
+            if (id != resources.ID)
             {
                 return BadRequest();
             }
 
-            await _resourcesService.UpdateResources(ID, resources);
+            await _resourcesService.UpdateResources(id, resources);
 
             return NoContent();
         }

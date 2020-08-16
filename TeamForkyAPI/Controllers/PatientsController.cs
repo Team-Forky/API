@@ -77,9 +77,9 @@ namespace TeamForkyAPI.Controllers
         // DELETE: api/patients/{id}
         // Delete specific patient by entering ID
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Patient>> DeletePatient(int ID)
+        public async Task<ActionResult<Patient>> DeletePatient(int id)
         {
-            await _patientService.RemovePatient(ID);
+            await _patientService.RemovePatient(id);
 
             return NoContent();
         }
@@ -87,32 +87,16 @@ namespace TeamForkyAPI.Controllers
         // PUT: api/patients/{id}
         // update specific patient by entering ID
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdatePatient(int ID, Patient patient)
+        public async Task<IActionResult> UpdatePatient(int id, Patient patient)
         {
-            if (ID != patient.ID)
+            if (id != patient.ID)
             {
                 return BadRequest();
             }
 
-            await _patientService.UpdatePatient(ID, patient);
+            await _patientService.UpdatePatient(id, patient);
 
             return NoContent();
         }
-
-        //// PUT: api/patients/{id}
-        //// update specific patient by entering ID
-        //[HttpPut("{patientID}/{resourcesID}")]
-        //public async Task<IActionResult> AssignSpecificResourceToPatient(int resourceID, int patientID, Resources resources, Patient patient)
-        //{
-            
-        //    if (patientID != patient.ID)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    await _patientService.UpdatePatient(ID, patient);
-
-        //    return NoContent();
-        //}
     }
 }
